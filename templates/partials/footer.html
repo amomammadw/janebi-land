@@ -1,0 +1,32 @@
+<footer class="bg-white border-t border-gray-200 mt-auto">
+  <div class="max-w-6xl mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="font-bold text-lg text-blue-600 mb-2">جانبی لند</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">
+          فروشگاه تخصصی لوازم جانبی موبایل — کیفیت، قیمت مناسب، ارسال سریع.
+        </p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3">دسترسی سریع</h4>
+        <ul class="space-y-2 text-sm text-gray-600">
+          <li><a href="{% url 'home' %}" class="hover:text-blue-600">خانه</a></li>
+          <li><a href="{% url 'product-list' %}" class="hover:text-blue-600">محصولات</a></li>
+          <li><a href="{% url 'about' %}" class="hover:text-blue-600">درباره ما</a></li>
+          <li><a href="{% url 'contact' %}" class="hover:text-blue-600">تماس با ما</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3">تماس</h4>
+        <ul class="space-y-2 text-sm text-gray-600">
+          <li>تلفن: <span dir="ltr">۰۲۱-۱۲۳۴۵۶۷۸</span></li>
+          <li>ایمیل: <span dir="ltr">info@janebiland.ir</span></li>
+          <li>ساعات کاری: ۹ تا ۱۸</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gray-100 mt-8 pt-6 text-center text-sm text-gray-500">
+      © {% now "Y" %} جانبی لند — تمامی حقوق محفوظ است.
+    </div>
+  </div>
+</footer>

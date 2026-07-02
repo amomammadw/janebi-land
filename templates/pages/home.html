@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}جانبی لند — فروشگاه لوازم جانبی موبایل{% endblock %}
+
+{% block content %}
+<section class="bg-gradient-to-l from-blue-600 to-blue-700 text-white">
+  <div class="max-w-6xl mx-auto px-4 py-16 md:py-24 text-center">
+    <h1 class="text-3xl md:text-4xl font-bold mb-4">جانبی لند</h1>
+    <p class="text-blue-100 text-lg mb-8 max-w-xl mx-auto">
+      بهترین لوازم جانبی موبایل — قاب، گلس، شارژر، هندزفری و بیشتر
+    </p>
+    <a
+      href="{% url 'product-list' %}"
+      class="inline-block bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors"
+    >
+      مشاهده محصولات
+    </a>
+  </div>
+</section>
+
+<section class="max-w-6xl mx-auto px-4 py-12">
+  <div class="flex items-center justify-between mb-8">
+    <h2 class="text-xl font-bold">جدیدترین محصولات</h2>
+    <a href="{% url 'product-list' %}" class="text-sm text-blue-600 hover:underline">مشاهده همه</a>
+  </div>
+
+  {% if featured_products %}
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+    {% for product in featured_products %}
+    {% include "partials/product_card.html" %}
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="text-center text-gray-500 py-12">محصولی یافت نشد.</p>
+  {% endif %}
+</section>
+{% endblock %}

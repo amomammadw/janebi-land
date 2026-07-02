@@ -1,0 +1,39 @@
+{% load static %}
+<!doctype html>
+<html lang="fa-IR" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}جانبی لند{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+  </head>
+  <body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col">
+    {% include "partials/header.html" %}
+
+    {% if messages %}
+    <div class="max-w-6xl mx-auto w-full px-4 mt-4">
+      {% for message in messages %}
+      <div
+        class="rounded-lg px-4 py-3 text-sm {% if message.tags == 'success' %}bg-green-50 text-green-800 border border-green-200{% else %}bg-blue-50 text-blue-800 border border-blue-200{% endif %}"
+      >
+        {{ message }}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <main class="flex-1">{% block content %}{% endblock %}</main>
+
+    {% include "partials/footer.html" %}
+    {% include "partials/signup_modal.html" %}
+
+    <script src="{% static 'js/signup-modal.js' %}"></script>
+  </body>
+</html>

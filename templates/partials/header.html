@@ -1,0 +1,40 @@
+<header class="bg-white border-b border-gray-200 sticky top-0 z-40">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+    <a href="{% url 'home' %}" class="text-xl font-bold text-blue-600">جانبی لند</a>
+
+    <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+      <a href="{% url 'home' %}" class="hover:text-blue-600 transition-colors">خانه</a>
+      <a href="{% url 'product-list' %}" class="hover:text-blue-600 transition-colors">محصولات</a>
+      <a href="{% url 'about' %}" class="hover:text-blue-600 transition-colors">درباره ما</a>
+      <a href="{% url 'contact' %}" class="hover:text-blue-600 transition-colors">تماس با ما</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      {% if user.is_authenticated %}
+      <span class="text-sm text-gray-600 hidden sm:inline" dir="ltr">{{ user.phone }}</span>
+      {% else %}
+      <button
+        id="signup-open-btn"
+        class="bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+      >
+        ورود / ثبت‌نام
+      </button>
+      {% endif %}
+
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600" aria-label="منو">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <nav id="mobile-nav" class="mobile-nav md:hidden border-t border-gray-100 bg-white px-4 pb-4">
+    <div class="flex flex-col gap-3 pt-3 text-sm font-medium">
+      <a href="{% url 'home' %}" class="hover:text-blue-600">خانه</a>
+      <a href="{% url 'product-list' %}" class="hover:text-blue-600">محصولات</a>
+      <a href="{% url 'about' %}" class="hover:text-blue-600">درباره ما</a>
+      <a href="{% url 'contact' %}" class="hover:text-blue-600">تماس با ما</a>
+    </div>
+  </nav>
+</header>
